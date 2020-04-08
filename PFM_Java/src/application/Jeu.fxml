@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="acp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handle" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleurJeu">
+   <children>
+      <ImageView fx:id="arrplan" fitHeight="800.0" fitWidth="1300.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../Bibioltèque/photo.jpg" />
+         </image>
+         <effect>
+            <BoxBlur />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="murf" fitHeight="217.0" fitWidth="375.0" layoutX="114.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="toit" fitHeight="91.0" fitWidth="600.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="murg" fitHeight="342.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="murd" fitHeight="342.0" fitWidth="121.0" layoutX="481.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="sol" fitHeight="192.0" fitWidth="594.0" layoutX="3.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imv_outilg" fitHeight="91.0" fitWidth="88.0" layoutX="8.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imv_outilf" fitHeight="91.0" fitWidth="88.0" layoutX="247.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imv_outild" fitHeight="91.0" fitWidth="88.0" layoutX="501.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="9.0" layoutY="346.0" text="R: Pour ramasser un outil " textFill="WHITE" AnchorPane.leftAnchor="9.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <VBox layoutX="608.0" layoutY="14.0" prefHeight="80.0" prefWidth="175.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Label text="Nom:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="nom_joueur" text="Nomjoueur" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="24.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Label text="Niveau:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="niveau" text="Niveau" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="14.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Label text="Position:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="position" text="Position" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <TitledPane animated="false" layoutX="475.0" layoutY="281.0" prefHeight="325.0" prefWidth="194.0" text="Cartable" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </TitledPane>
+      <Label layoutX="9.0" layoutY="365.0" text="D: Pour déposer un outil " textFill="WHITE" AnchorPane.leftAnchor="9.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="384.0" text="utilisez les flèches pour changer votre position " textFill="WHITE" AnchorPane.leftAnchor="9.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="403.0" text="utilisez la flèche pointante vers le haut pour sortir de la chambre " textFill="WHITE" AnchorPane.leftAnchor="9.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="objectif" layoutX="9.0" layoutY="421.0" text="Objectif" textFill="WHITE" AnchorPane.leftAnchor="9.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="avertissement" layoutX="34.0" layoutY="461.0" text="Avertissement" textFill="RED" AnchorPane.leftAnchor="9.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
