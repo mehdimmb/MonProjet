@@ -137,9 +137,14 @@ public class MainController extends Application implements EventHandler<KeyEvent
             					ctrl.avertissement.setText("Félicitation vous avez atteint tout les objectif, Bravo! ");
             				}else {//chargement du niveau suivant est ces différents composants
             					position=1;
-                    			niveau.setNiveau(niveau.getNiveau()+1);
-                    			joueur.setNiveau(niveau.getNiveau());
+                    			joueur.setNiveau(niveau.getNiveau()+1);
                     			joueur.setPosition(position);
+                    			try {
+									niveau=con.getNiveau(joueur.getNiveau());
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
                     			for(int i=1;i<=4;i++) {
                     				joueur.setPorte_ouverte(false,i);
                     			}
