@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.BoxBlur?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="acp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handle" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleurJeu">
+<AnchorPane fx:id="acp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handle" prefHeight="590.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleurJeu">
    <children>
       <ImageView fx:id="arrplan" fitHeight="800.0" fitWidth="1300.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -34,7 +36,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <VBox layoutX="608.0" layoutY="14.0" prefHeight="80.0" prefWidth="175.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0">
+      <VBox layoutX="608.0" layoutY="14.0" prefHeight="80.0" prefWidth="175.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="50.0" prefWidth="200.0">
                <children>
@@ -101,12 +103,15 @@
             </HBox>
          </children>
       </VBox>
-      <TitledPane animated="false" layoutX="475.0" layoutY="281.0" prefHeight="325.0" prefWidth="194.0" text="Cartable" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <TitledPane animated="false" layoutX="475.0" layoutY="281.0" prefHeight="355.0" prefWidth="233.0" text="Cartable" AnchorPane.bottomAnchor="154.0" AnchorPane.rightAnchor="0.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="254.0">
+               <children>
+                  <VBox fx:id="vb" layoutX="39.6" layoutY="18.6" prefHeight="412.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
         </content>
       </TitledPane>
-      <Label layoutX="9.0" layoutY="365.0" text="D: Pour déposer un outil " textFill="WHITE" AnchorPane.leftAnchor="9.0">
+      <Label layoutX="9.0" layoutY="365.0" text="Cliquez sur l'icon de l'outil dedans le cartable pour le déposer" textFill="WHITE" AnchorPane.leftAnchor="9.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -121,14 +126,66 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="objectif" layoutX="9.0" layoutY="421.0" text="Objectif" textFill="WHITE" AnchorPane.leftAnchor="9.0">
+      <Label fx:id="objectif" layoutX="9.0" layoutY="426.0" text="Objectif" textFill="#f5ea00" AnchorPane.leftAnchor="9.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="avertissement" layoutX="34.0" layoutY="461.0" text="Avertissement" textFill="RED" AnchorPane.leftAnchor="9.0">
+      <Label fx:id="avertissement" layoutX="9.0" layoutY="584.0" text="Avertissement" textFill="RED" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="9.0">
          <font>
             <Font size="16.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="map" fitHeight="154.0" fitWidth="203.0" layoutX="413.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <image>
+            <Image url="@../Bibioltèque/map/map.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="nsmap" layoutX="530.0" layoutY="534.0" rotate="90.0" text="Niveau suivant" textFill="RED" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="-15.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="acp2" layoutX="407.0" layoutY="376.0" prefHeight="180.0" prefWidth="406.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-253.0">
+         <children>
+            <ImageView fitHeight="34.0" fitWidth="32.0" layoutX="63.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="nsf" layoutX="262.0" layoutY="74.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="nsd" layoutX="491.0" layoutY="97.0" rotate="2.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="nsg" layoutX="22.0" layoutY="97.0" rotate="-2.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="quitter" layoutX="37.0" layoutY="516.0" onAction="#quitter" prefHeight="50.0" prefWidth="107.0" style="-fx-border-radius: 100%; -fx-background-color: rgba(0,0,0,0); -fx-background-radius: 30%; -fx-border-color: #FFF;" text="Quitter" textFill="WHITE" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="37.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="enregistrer" layoutX="155.0" layoutY="516.0" onAction="#enregistrer" prefHeight="50.0" prefWidth="107.0" style="-fx-border-radius: 100%; -fx-background-color: rgba(0,0,0,0); -fx-background-radius: 30%; -fx-border-color: #FFF;" text="Enregistrer" textFill="WHITE" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="155.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="535.0" layoutY="534.0" text="Chambre 3" AnchorPane.bottomAnchor="135.0" AnchorPane.rightAnchor="3.0" />
+      <Label layoutX="429.0" layoutY="465.0" rotate="90.0" text="Chambre 2" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="113.0" />
+      <Label layoutX="450.0" layoutY="570.0" text="Chambre 1" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="90.0" />
+      <Label fx:id="fmap" layoutX="562.0" layoutY="534.0" rotate="90.0" text="Fin" textFill="RED" visible="false" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font size="13.0" />
          </font>
       </Label>
    </children>

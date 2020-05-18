@@ -13,13 +13,13 @@ private int numero;
 private String couleur;
 private Image murf,toit,sol,murg,murd;
 
-	public Chambre(int niveau, int position) {
-		this.numero=niveau;
-		this.murd=new Image("/Bibioltèque/chambre"+niveau+"_"+position+"/murd.png");
-		this.murg=new Image("/Bibioltèque/chambre"+niveau+"_"+position+"/murg.png");
-		this.murf=new Image("/Bibioltèque/chambre"+niveau+"_"+position+"/murf.png");
-		this.toit=new Image("/Bibioltèque/chambre"+niveau+"_"+position+"/toit.png");
-		this.sol=new Image("/Bibioltèque/chambre"+niveau+"_"+position+"/sol.png");
+	public Chambre(int numch,int niveau, int position) {
+		this.numero=numch;
+		this.murd=new Image("/Bibioltèque/chambre"+niveau+"_"+numch+"_"+position+"/murd.png");
+		this.murg=new Image("/Bibioltèque/chambre"+niveau+"_"+numch+"_"+position+"/murg.png");
+		this.murf=new Image("/Bibioltèque/chambre"+niveau+"_"+numch+"_"+position+"/murf.png");
+		this.toit=new Image("/Bibioltèque/chambre"+niveau+"_"+numch+"_"+position+"/toit.png");
+		this.sol=new Image("/Bibioltèque/chambre"+niveau+"_"+numch+"_"+position+"/sol.png");
 	}
 
 	public Chambre(int numero, String couleur) {

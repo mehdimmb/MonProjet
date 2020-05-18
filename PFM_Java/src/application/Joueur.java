@@ -10,15 +10,16 @@ public class Joueur {
 		private int niveau;
 		private Cartable cartable;
 		private int position;
-		private boolean porte_ouverte;
+		private boolean[] porte_ouverte;
 		private String message;
 		
-		public Joueur(String nom, int niveau, Cartable cartable, int position, boolean porte_ouverte) {
+		public Joueur(int num,String nom, int niveau, Cartable cartable, int position) {
+			this.numero=num;
 			this.nom = nom;
 			this.niveau = niveau;
 			this.cartable = cartable;
 			this.position = position;
-			this.porte_ouverte = porte_ouverte;
+			this.porte_ouverte = new boolean[4];
 			message="";
 		}
 		public String getNom() {
@@ -47,11 +48,11 @@ public class Joueur {
 			this.position = position;
 		}
 		
-		public boolean isPorte_ouverte() {
-			return porte_ouverte;
+		public boolean isPorte_ouverte(int num_chambre) {
+			return porte_ouverte[num_chambre-1];
 		}
-		public void setPorte_ouverte(boolean porte_ouverte) {
-			this.porte_ouverte = porte_ouverte;
+		public void setPorte_ouverte(boolean porte_ouverte,int num_chambre) {
+			this.porte_ouverte[num_chambre-1] = porte_ouverte;
 		}
 		public int getNumero() {
 			return numero;
@@ -77,22 +78,35 @@ public class Joueur {
 		//à condition que la porte doit etre ouverte; 
 		//pour l'avoir ouverte le joueur doit atteindre l'objectif correspandant à son niveau actuel
 		//et qu'il doit etre face à la porte càd la 3 eme position/direction
-		public boolean avancer() {
-			if(position==3 && porte_ouverte) {
-				this.niveau++;
-				return true;
+		public boolean avancer(Chambre chambre) {
+			if(chambre.getNumero()!=0) {
+				if(position==3 && porte_ouverte[chambre.getNumero()-1]) {
+					return true;
+				}
+				else
+					if(position==3) {
+						message="La porte n'est pas ouverte, vous devez atteindre l'objectif pour l'avoir ouverte";
+		
+						return false;
+					}	
+					else {
+						message="Pour avancer; vous devez être face à la porte et l'avoir ouverte";
+						return false;
+					}
 			}
-			else
-				if(position==3) {
-					message="La porte n'est pas ouverte, vous devez atteindre l'objectif pour l'avoir ouverte";
-	
-					return false;
-				}	
+			else {
+				int index_porte_face=position+1;
+				if(index_porte_face>=4)
+					index_porte_face=index_porte_face-4;
+				if(porte_ouverte[index_porte_face]) {
+					return true;
+				}
 				else {
-					message="Pour avancer et passer au niveau suivant vous devez être face à la porte et l'avoir ouverte";
+					message="La porte n'est pas ouverte, vous devez atteindre l'objectif pour l'avoir ouverte";
 					return false;
 				}
-					
+			
+			}
 				
 		}
 		public String getMessage() {

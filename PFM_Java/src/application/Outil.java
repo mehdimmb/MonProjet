@@ -8,14 +8,12 @@ import javafx.scene.image.Image;
 
 public class Outil {
 		private int numero,position;
-		private int niveau;
 		private String nom;
 		private Image image_gauche,image_face,image_droite;//chaque outil a 3 vues 
 		boolean ramassé;
 		
-		public Outil(int numero, int niveau) {
+		public Outil(int numero) {
 			this.numero = numero;
-			this.niveau = niveau;
 			this.image_gauche=new Image("/Bibioltèque/outil/"+numero+"g.png");
 			this.image_face=new Image("/Bibioltèque/outil/"+numero+"f.png");
 			this.image_droite=new Image("/Bibioltèque/outil/"+numero+"d.png");
@@ -62,12 +60,6 @@ public class Outil {
 		}
 		public void setNumero(int numero) {
 			this.numero = numero;
-		}
-		public int getNiveau() {
-			return niveau;
-		}
-		public void setNiveau(int niveau) {
-			this.niveau = niveau;
 		}
 		public String getNom() {
 			return nom;
